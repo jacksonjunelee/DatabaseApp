@@ -1,4 +1,5 @@
 class LocationsController < ApplicationController
+  before_action :json_authenticate
 
   def index
     @locations= Location.where("headquarters_id =18")
@@ -22,6 +23,12 @@ class LocationsController < ApplicationController
   end
 
 private
+
+def json_authenticate
+  # Render json containing errors, an array of strings
+  # Render with an HTTP status of 401 (unauthorized)
+  render json: { errors: ["You must be logged in"] }, status: 401 unless current_user
+end
 
   def location_params
     params.require(:location).permit(:name, :address, :city, :state, :zip, :headquarters_id)
