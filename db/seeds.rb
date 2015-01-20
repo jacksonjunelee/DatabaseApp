@@ -10,4 +10,5 @@ Location.create(name: "MundiOro", address: "540 sw 56st", city: "New York", stat
 Location.create(name: "CatOro", address: "522 sw 55st", city: "New York", state: "NY", zip: "11111")
 Location.create(name: "MewOro", address: "567 sw 56st", city: "New York", state: "NY", zip: "22222")
 
-# id | name | address | city | state | zip | headquarters_id | created_at | updated_at
+Inventory.create(product_name: "jade earrings",amount_inhouse: 34,amount_sold: 45,price: 3.77, locations_id: 1)
+Inventory.create(product_name: "pearl necklace",amount_inhouse: 7,amount_sold: 27,price: 4.87, locations_id: 1)
