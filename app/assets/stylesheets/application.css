@@ -13,3 +13,18 @@
  *= require_tree .
  *= require_self
  */
+
+ .location {
+   box-sizing: padding-box;
+
+   width: 30%;
+   padding: 12px;
+   margin: 12px 0;
+
+   border-radius: 5px;
+   border-bottom: 1px solid #bbb;
+   border-right: 1px solid #bbb;
+
+   background-color: #f7f7f7;
+ }
+ 

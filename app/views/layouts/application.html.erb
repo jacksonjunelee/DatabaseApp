@@ -7,8 +7,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<section id="headquarter-section"></section> 
+<section id="headquarter-section"></section>
 <section id="location-list"></section>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
 <%= yield %>
 
 </body>
