@@ -31,9 +31,9 @@ var App = {
 };
 
 $(function(){
-	var headquarter = new App.Models.Headquarter({parse:true});
- 	headquarterView = new App.Views.HeadquarterView({model: headquarter});
-	headquarterView.render();
+	// var headquarter = new App.Models.Headquarter({parse:true});
+ // 	headquarterView = new App.Views.HeadquarterView({model: headquarter});
+	// headquarterView.render();
 	App.collection = new App.Collections.LocationCollection();
 	App.locationsView = new App.Views.LocationListView({ collection: App.collection });
 	App.collection.fetch({reset:true});

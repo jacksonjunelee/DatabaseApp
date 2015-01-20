@@ -1,9 +1,12 @@
 class LocationsController < ApplicationController
 
   def index
-    @locations= Location.where("headquarters_id =18")
-    @headquarter = Location.where("id=18")
-    render json: [@locations,@headquarter]
+    @locations = Location.all
+    render json: @locations
+
+  #   @locations= Location.where("headquarters_id =18")
+  #   @headquarter = Location.where("id=18")
+  #   render json: [@locations,@headquarter]
   end
 
   def show
