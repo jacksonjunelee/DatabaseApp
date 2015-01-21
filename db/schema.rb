@@ -11,22 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150121172642) do
+ActiveRecord::Schema.define(version: 20150121231632) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "inventories", force: true do |t|
-    t.string   "product_name"
     t.integer  "amount_inhouse"
     t.integer  "amount_sold"
     t.float    "price"
+    t.integer  "products_id"
     t.integer  "locations_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "inventories", ["locations_id"], name: "index_inventories_on_locations_id", using: :btree
+  add_index "inventories", ["products_id"], name: "index_inventories_on_products_id", using: :btree
 
   create_table "locations", force: true do |t|
     t.string   "name"
@@ -41,10 +42,15 @@ ActiveRecord::Schema.define(version: 20150121172642) do
 
   add_index "locations", ["headquarter_id"], name: "index_locations_on_headquarter_id", using: :btree
 
+  create_table "products", force: true do |t|
+    t.string "product_name"
+  end
+
   create_table "users", force: true do |t|
     t.string   "firstname"
     t.string   "lastname"
     t.string   "position"
+    t.string   "company"
     t.integer  "location_id"
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -58,7 +64,6 @@ ActiveRecord::Schema.define(version: 20150121172642) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "company"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

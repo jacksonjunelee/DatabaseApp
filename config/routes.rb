@@ -2,7 +2,10 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: 'registrations' }
   root 'application#index'
   resources :locations, only: [:index, :show, :create, :update, :destroy]
-  resources :inventories
+  resources :inventories do
+      get 'inventories/:headquarter_id' => 'inventories#branch', as: :get
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -4,6 +4,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :firstname
       t.string :lastname
       t.string :position
+      t.string :company
       t.references :location, index: true
       ## Database authenticatable
       t.string :email,              null: false, default: ""

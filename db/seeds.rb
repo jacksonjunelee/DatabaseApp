@@ -12,3 +12,6 @@ Location.create(name: "MewOro", address: "567 sw 56st", city: "New York", state:
 
 Inventory.create(product_name: "jade earrings",amount_inhouse: 34,amount_sold: 45,price: 3.77, locations_id: 1)
 Inventory.create(product_name: "pearl necklace",amount_inhouse: 7,amount_sold: 27,price: 4.87, locations_id: 1)
+
+Product.create(product_name: "jade earrings")
+Product.create(product_name: "pearl necklace")
