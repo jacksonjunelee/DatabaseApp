@@ -1,5 +1,5 @@
 App.Collections.InventoriesCollection = Backbone.Collection.extend({
-  url: '/inventories',
+  url: '/inventories/:id',
   initialize: function(){
     console.log("inventory collection");
   }

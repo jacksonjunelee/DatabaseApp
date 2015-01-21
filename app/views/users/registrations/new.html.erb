@@ -4,18 +4,23 @@
   <%= devise_error_messages! %>
 
   <div class="field">
-    <%= f.label :firstname %><br />
+    <%= f.label :first_name %><br />
     <%= f.text_field :firstname, autofocus: true %>
   </div>
 
   <div class="field">
-    <%= f.label :lastname %><br />
+    <%= f.label :last_name %><br />
     <%= f.text_field :lastname, autofocus: true %>
   </div>
 
   <div class="field">
     <%= f.label :position %><br />
-    <%= f.text_field :position, autofocus: true %>
+    <%= f.select :position, [['Admin', 'Admin'], ['Manager', 'Manager'], ['Regular Employee', 'Regular Employee']], autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label "company" %><br />
+    <%= f.text_field "company", autofocus: true %>
   </div>
 
   <div class="field">
@@ -40,5 +45,16 @@
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
+
+  <script>$('#user_company').on('blur',function(){
+    var company = $(this).val().toLowerCase();
+    $.get('/locations').done(function(data){
+      console.log(this);
+      console.log(data);
+      consoel.log("milk")
+    })
+
+
+    })</script>
 
 <%= render "users/shared/links" %>

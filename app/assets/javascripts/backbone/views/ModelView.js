@@ -14,8 +14,8 @@ App.Views.LocationView = Backbone.View.extend({
   },
   grabListInventory:function(){
     $('#inventory-list').empty();
-    this.inventoryCollection = new App.Collections.InventoriesCollection();
-    this.inventoryCollection.fetch({success: this.renderListInventory});
+    console.log(this);
+    App.Routers.InventoriesRouter.navigate('inventories/' + this.model.attributes.id);
   },
   renderListInventory:function(collection){
     this.inventoryListView = new App.Views.InventoryListView({collection: collection});

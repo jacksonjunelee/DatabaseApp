@@ -1,12 +1,22 @@
 App.Routers.InventoriesRouter = Backbone.Router.extend({
   routes: {
     '': 'index',
-    'search/:query': 'search',
+    'inventories/:id': 'search',
     'movies/:id(/:query)': 'movieDetail'
   },
 
   initialize: function() {
-    console.log("moo")
+    headquarter = new App.Models.Headquarter();
+    headquarter.fetch({success: this.renderHeadquarter});
+
+    App.locationCollection = new App.Collections.LocationCollection();
+    App.locationsView = new App.Views.LocationListView({ collection: App.locationCollection });
+    App.locationCollection.fetch({reset:true});
+  },
+
+  renderHeadquarter: function(){
+    headquarterView = new App.Views.HeadquarterView({model: headquarter});
+    headquarterView.render();
   },
 
   index: function() {
@@ -15,7 +25,7 @@ App.Routers.InventoriesRouter = Backbone.Router.extend({
     App.Collections.movies.reset();
   },
 
-  search: function(query) {
+  search: function(id) {
     $('#search-input').val(query);
     App.Views.movieModalView.hide();
     App.Views.searchFormView.search();
