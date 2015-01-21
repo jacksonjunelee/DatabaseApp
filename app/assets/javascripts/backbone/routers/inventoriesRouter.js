@@ -6,14 +6,7 @@ App.Routers.InventoriesRouter = Backbone.Router.extend({
   },
 
   initialize: function() {
-    App.Collections.movies = new App.Collections.MoviesCollection();
-    App.Views.searchResultsView = new App.Views.MoviesCollectionView({
-      collection: App.Collections.movies
-    });
-    App.Views.searchFormView = new App.Views.SearchFormView({
-      collection: App.Collections.movies
-    });
-    App.Views.movieModalView = new App.Views.MovieModalView();
+    console.log("moo")
   },
 
   index: function() {

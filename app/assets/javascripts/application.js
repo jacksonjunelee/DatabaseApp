@@ -37,6 +37,9 @@ $(function(){
 	App.locationCollection = new App.Collections.LocationCollection();
 	App.locationsView = new App.Views.LocationListView({ collection: App.locationCollection });
 	App.locationCollection.fetch({reset:true});
+
+	App.Routers.InventoriesRouter = new App.Routers.InventoriesRouter();
+	Backbone.history.start();
 });
 
 function renderHeadquarter(){

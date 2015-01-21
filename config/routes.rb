@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => { registrations: 'registrations' }
+  
   root 'application#index'
   resources :locations, only: [:index, :show, :create, :update, :destroy]
   resources :inventories
