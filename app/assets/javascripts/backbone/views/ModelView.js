@@ -2,19 +2,25 @@ App.Views.LocationView = Backbone.View.extend({
   tagName: 'div',
   className: 'location',
   events:{
-    'click .showInventory': 'renderInventory'
+    'click .showInventory': 'grabListInventory'
   },
   initialize:function(){
     console.log("One VIew Created");
     this.locationTemplate = HandlebarsTemplates['location'];
     this.render();
-    this.listenTo(this.model,"show",this.renderInventory);
   },
   render: function(){
     this.$el.html(this.locationTemplate(this.model.toJSON()));
   },
-  renderInventory:function(){
-    console.log("moo");
+  grabListInventory:function(){
+    $('#inventory-list').empty();
+    this.inventoryCollection = new App.Collections.InventoriesCollection();
+    this.inventoryCollection.fetch({success: this.renderListInventory});
+  },
+  renderListInventory:function(collection){
+    this.inventoryListView = new App.Views.InventoryListView({collection: collection});
+    this.inventoryListView.render();
+
   }
 
 });

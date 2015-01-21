@@ -1,11 +1,8 @@
 class LocationsController < ApplicationController
 
   def index
-    # @locations = Location.all
-    # render json: @locations
-
-    @locations= Location.where("headquarter_id =1")
-    @headquarter = Location.where("id=1")
+    @locations= current_user.location.branches
+    @headquarter = current_user.location
     render json: [@locations,@headquarter]
   end
 
