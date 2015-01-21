@@ -1,7 +1,7 @@
 App.Models.Headquarter = Backbone.Model.extend({
   url: '/locations',
   parse:function(response){
-    return response[1][0];
+    return response[1];
     // response.address = response[1][0].address;
     // response.city= response[1][0].city;
     // response.id= response[1][0].id;

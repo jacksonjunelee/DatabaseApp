@@ -6,8 +6,6 @@ App.Views.HeadquarterView = Backbone.View.extend({
     this.headquarterTemplate = HandlebarsTemplates['headquarter'];
   },
   render: function(){
-    console.log(this.model)
-    console.log(this.model.toJSON())
     $('#headquarter-section').append(this.$el.html(this.headquarterTemplate(this.model.toJSON())));
   }
 
