@@ -15,7 +15,7 @@ App.Views.LocationListView = Backbone.View.extend({
   }
 
 
-})
+});
 
 
 // var noteView = new App.Views.NotePreview({ model: note });

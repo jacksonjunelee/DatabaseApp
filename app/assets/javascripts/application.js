@@ -31,11 +31,15 @@ var App = {
 };
 
 $(function(){
-	// var headquarter = new App.Models.Headquarter({parse:true});
- // 	headquarterView = new App.Views.HeadquarterView({model: headquarter});
-	// headquarterView.render();
+	headquarter = new App.Models.Headquarter();
+	headquarter.fetch({success: renderHeadquarter});
+
 	App.collection = new App.Collections.LocationCollection();
 	App.locationsView = new App.Views.LocationListView({ collection: App.collection });
 	App.collection.fetch({reset:true});
+});
 
-})
+function renderHeadquarter(){
+	headquarterView = new App.Views.HeadquarterView({model: headquarter});
+	headquarterView.render();
+}
