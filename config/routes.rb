@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: 'users/registrations' }
   root 'application#index'
-  resources :locations, only: [:index, :show, :create, :update, :destroy] do
+  resources :locations, only: [:index, :create, :update, :destroy] do
     collection do
     get "branch_registration/:id" => "locations#registration", as: :branch_registration
     end
   end
 
-  resources :inventories do
+  resources :inventories, except: [:new, :edit] do
     collection do
       get 'branch/:id' => 'inventories#branch', as: :get
     end

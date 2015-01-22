@@ -2,7 +2,8 @@ App.Views.LocationView = Backbone.View.extend({
   tagName: 'div',
   className: 'location',
   events:{
-    'click .showInventory': 'grabListInventory'
+    'click .showInventory': 'grabListInventory',
+    'click .create': 'createBranch'
   },
   initialize:function(){
     console.log("One VIew Created");
@@ -33,6 +34,24 @@ App.Views.LocationView = Backbone.View.extend({
     console.log("new Branch template ")
     var newBranch = this.$el.prepend(this.newBranchTemplate(this.model.toJSON()));
     $("#new-branch").append(newBranch);
-  }
+  },
+  createBranch:function(){
+    var createObject = {};
 
+    createObject.name = $('input#Name').val();
+    createObject.address = $('input#Address').val();
+    createObject.city = $('input#City').val();
+    createObject.state = $('input#State').val();
+    createObject.zip = $('input#Zip').val();
+    createObject.headquarter_id = parseInt($('div').attr("id"));
+    App.locationCollection.create(createObject);
+
+    $('input#Name').val('');
+    $('input#Address').val('');
+    $('input#City').val('');
+    $('input#State').val('');
+    $('input#Zip').val('');
+  },
+
+    
 });

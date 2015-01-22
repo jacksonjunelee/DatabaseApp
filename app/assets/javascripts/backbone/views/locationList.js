@@ -2,8 +2,8 @@ App.Views.LocationListView = Backbone.View.extend({
   el: "#location-list",
   initialize: function(){
     console.log("Location list rendered");
-    this.render();
-    this.listenTo(this.collection, 'reset', this.render);
+    // this.render();
+    this.listenTo(this.collection, 'reset', this.render,this);
   },
   render:function(){
     this.$el.empty();
