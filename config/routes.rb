@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
-  devise_for :users, :controllers => { registrations: 'registrations' }
+  devise_for :users, :controllers => { registrations: 'users/registrations' }
   root 'application#index'
-  resources :locations, only: [:index, :show, :create, :update, :destroy]
+  resources :locations, only: [:index, :show, :create, :update, :destroy] do
+    collection do
+    get "branch_registration/:id" => "locations#registration", as: :branch_registration
+    end
+  end
+
   resources :inventories do
-      get 'inventories/:headquarter_id' => 'inventories#branch', as: :get
+    collection do
+      get 'branch/:id' => 'inventories#branch', as: :get
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

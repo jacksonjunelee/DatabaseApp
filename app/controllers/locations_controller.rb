@@ -21,6 +21,11 @@ class LocationsController < ApplicationController
     render json: @location
   end
 
+  def registration
+  render "users/registrations/branch_selection"  
+  end
+
+
 private
 
   def location_params

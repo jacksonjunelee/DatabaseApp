@@ -43,7 +43,9 @@ ActiveRecord::Schema.define(version: 20150121231632) do
   add_index "locations", ["headquarter_id"], name: "index_locations_on_headquarter_id", using: :btree
 
   create_table "products", force: true do |t|
-    t.string "product_name"
+    t.string   "product_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|

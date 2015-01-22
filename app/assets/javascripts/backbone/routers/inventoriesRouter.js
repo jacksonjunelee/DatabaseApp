@@ -1,7 +1,7 @@
 App.Routers.InventoriesRouter = Backbone.Router.extend({
   routes: {
     '': 'index',
-    'inventories/:id(/)': 'search',
+    'inventories/branch/:branch_id': 'branch',
   },
 
   initialize: function() {
@@ -11,6 +11,8 @@ App.Routers.InventoriesRouter = Backbone.Router.extend({
     App.locationCollection = new App.Collections.LocationCollection();
     App.locationsView = new App.Views.LocationListView({ collection: App.locationCollection });
     App.locationCollection.fetch({reset:true});
+
+    App.InventoriesCollection = new App.Collections.InventoriesCollection();
   },
 
   renderHeadquarter: function(){
@@ -24,11 +26,9 @@ App.Routers.InventoriesRouter = Backbone.Router.extend({
   //   App.Collections.movies.reset();
   // },
   //
-  // search: function(id) {
-  //   $('#search-input').val(query);
-  //   App.Views.movieModalView.hide();
-  //   App.Views.searchFormView.search();
-  // },
+  branch: function(branch_id) {
+    console.log(branch_id);
+  },
   //
   // movieDetail: function(id, query) {
   //   if (query) {

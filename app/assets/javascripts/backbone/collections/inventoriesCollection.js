@@ -1,9 +1,16 @@
 App.Collections.InventoriesCollection = Backbone.Collection.extend({
-  // model: App.Models.InventoryModel,
-  // url: '/locations/' + this.model.id,
+  // model: App.Models.InventoryModel
+  url: "/inventories/branch",
   initialize: function(){
     console.log("inventory collection");
-    console.log(this.model);
+
+
+  },
+
+  fetchInventory: function() {
+
+    // this.fetch({url: 'inventories/'+ this.branch_id + '/branch'})
+    // this.fetch({url: 'inventories/1/branch'})
   }
   // parse: function(response){
   //   return response[0];
