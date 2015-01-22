@@ -12,7 +12,7 @@ App.Routers.InventoriesRouter = Backbone.Router.extend({
     App.locationsView = new App.Views.LocationListView({ collection: App.locationCollection });
     App.locationCollection.fetch({reset:true});
 
-    App.InventoriesCollection = new App.Collections.InventoriesCollection();
+    // App.InventoriesCollection = new App.Collections.InventoriesCollection();
   },
 
   renderHeadquarter: function(){

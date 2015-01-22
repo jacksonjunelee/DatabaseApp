@@ -17,12 +17,13 @@ App.Views.LocationView = Backbone.View.extend({
     $('#inventory-list').empty();
     var id = this.model.attributes.id;
     // debugger;
-    App.Routers.InventoriesRouter.navigate('inventories/branch/ ' + this.model.attributes.id);
-    App.InventoriesCollection.fetch({
-      data: {branch_id: 1},
-      reset: true
-    });
-    // App.InventoriesCollection.fetchInventory();
+    // App.Routers.InventoriesRouter.navigate('inventories/branch/ ' + this.model.attributes.id);
+    // App.InventoriesCollection.fetch({
+    //   data: {branch_id: 1},
+    //   reset: true
+    // });
+    App.InventoriesCollection = new App.Collections.InventoriesCollection();
+    App.InventoriesCollection.fetchInventory();
   },
   renderListInventory:function(collection){
     this.inventoryListView = new App.Views.InventoryListView({collection: collection});
