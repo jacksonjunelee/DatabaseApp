@@ -8,7 +8,7 @@ App.Views.LocationView = Backbone.View.extend({
     console.log("One VIew Created");
     this.locationTemplate = HandlebarsTemplates['location'];
     this.newBranchTemplate = HandlebarsTemplates['newBranch'];
-    this.render();
+    this.newBranch();
   },
   render: function(){
     this.$el.html(this.locationTemplate(this.model.toJSON()));
@@ -30,7 +30,9 @@ App.Views.LocationView = Backbone.View.extend({
     this.inventoryListView.render();
   },
   newBranch:function(){
-    console.log("moo")
+    console.log("new Branch template ")
+    var newBranch = this.$el.prepend(this.newBranchTemplate(this.model.toJSON()));
+    $("#new-branch").append(newBranch);
   }
 
 });

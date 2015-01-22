@@ -1,2 +1,13 @@
 
-<%= form_for current_user do |f| %>
+<% cat= Location.all.map{|moo| moo if moo.headquarter_id.blank?}.compact %>
+<% moo = cat.map{|s| s if s.name.downcase == current_user.company.downcase}.compact %>
+<%= moo %>
+
+<script>
+var min = '<%= current_user.company.downcase %>'
+var registerTemplate =  HandlebarsTemplates['registrationBranch'];
+for (var i=0; i<min.length;i++){
+  var html = registerTemplate(min[i]);
+}
+
+</script>
