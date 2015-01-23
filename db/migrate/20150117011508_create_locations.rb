@@ -6,6 +6,7 @@ class CreateLocations < ActiveRecord::Migration
       t.string :city
       t.string :state
       t.integer :zip
+      t.integer :phone
       t.references :headquarter, index: true
 
       t.timestamps

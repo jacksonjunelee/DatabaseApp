@@ -20,14 +20,14 @@ ActiveRecord::Schema.define(version: 20150121231632) do
     t.integer  "amount_inhouse"
     t.integer  "amount_sold"
     t.float    "price"
-    t.integer  "products_id"
-    t.integer  "locations_id"
+    t.integer  "product_id"
+    t.integer  "location_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "inventories", ["locations_id"], name: "index_inventories_on_locations_id", using: :btree
-  add_index "inventories", ["products_id"], name: "index_inventories_on_products_id", using: :btree
+  add_index "inventories", ["location_id"], name: "index_inventories_on_location_id", using: :btree
+  add_index "inventories", ["product_id"], name: "index_inventories_on_product_id", using: :btree
 
   create_table "locations", force: true do |t|
     t.string   "name"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20150121231632) do
     t.string   "city"
     t.string   "state"
     t.integer  "zip"
+    t.integer  "phone"
     t.integer  "headquarter_id"
     t.datetime "created_at"
     t.datetime "updated_at"

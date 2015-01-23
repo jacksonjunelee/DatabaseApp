@@ -10,5 +10,4 @@ App.Views.InventoryView = Backbone.View.extend({
     this.$el.html(this.inventoryTemplate(this.model.toJSON()));
   }
 
-
 });

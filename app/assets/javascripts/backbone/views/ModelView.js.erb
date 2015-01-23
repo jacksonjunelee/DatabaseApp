@@ -1,6 +1,6 @@
 App.Views.LocationView = Backbone.View.extend({
   tagName: 'div',
-  className: 'location showInventory',
+  className: 'location',
   events:{
     'click .showInventory': 'grabListInventory',
     'click .create': 'createBranch'
@@ -38,14 +38,9 @@ App.Views.LocationView = Backbone.View.extend({
   },
   grabListInventory:function(){
     $('#inventory-list').empty();
-    var headquarter_id = this.model.attributes.headquarter_id;
-    App.InventoriesCollection = new App.Collections.InventoriesCollection({branch_id: headquarter_id});
-    App.InventoriesCollection.fetchInventory({success: this.renderListInventory});
-  },
-  renderListInventory:function(collection){
-    this.inventoryListView = new App.Views.InventoryListView({collection: collection});
-    this.inventoryListView.render();
-  },
-
+    console.log(this.model.attributes)
+    var id = this.model.attributes.id;
+    App.InventoriesCollection.fetchInventory(id);
+  }
 
 });

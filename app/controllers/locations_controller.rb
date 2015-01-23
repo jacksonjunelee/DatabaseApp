@@ -6,6 +6,14 @@ class LocationsController < ApplicationController
     render json: [@locations,@headquarter]
   end
 
+  def show
+    @location = Location.find(params[:id])
+    @inventories = @location.inventories.map do |inventory|
+      inventory.as_json(include: :product)
+    end
+    render json: [@location,@inventories]
+  end
+
   def create
     location = Location.create(location_params)
     render json: location
