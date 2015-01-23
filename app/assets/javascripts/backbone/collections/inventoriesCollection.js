@@ -1,5 +1,6 @@
 App.Collections.InventoriesCollection = Backbone.Collection.extend({
-  // model: App.Models.InventoryModel
+  url: '/inventories',
+  model: App.Models.InventoryModel,
   // url: "/inventories/branch",
   initialize: function(){
     console.log("inventory collection");
