@@ -14,6 +14,12 @@ class InventoriesController < ApplicationController
     render json: @location
   end
 
+  def branch
+    @branch_inventory = Inventory.where(locations_id:(params[:id]))
+    render json: @branch_inventory
+  end
+
+
 
   private
 

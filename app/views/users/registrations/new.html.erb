@@ -48,13 +48,7 @@
 
   <script>$('#user_company').on('blur',function(){
     var company = $(this).val().toLowerCase();
-    $.get('/locations').done(function(data){
-      console.log(this);
-      console.log(data);
-      consoel.log("milk")
-    })
-
-
+    $(this).val(company);
     })</script>
 
 <%= render "users/shared/links" %>

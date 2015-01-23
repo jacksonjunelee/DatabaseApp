@@ -1,0 +1,25 @@
+
+<% allHead= Location.all.map{|moo| moo if moo.headquarter_id.blank?}.compact %>
+<%=  %>
+<% moo = allHead.map{|head| head if head.name.downcase == current_user.company.downcase}.compact %>
+<%= moo%>
+
+<% headquarters %>
+<div>
+  <p></p>
+  <input>
+</div>
+
+
+
+
+
+<script>
+var min = '<%= current_user.company.downcase %>'
+console.log(min);
+var registerTemplate =  HandlebarsTemplates['registrationBranch'];
+for (var i=0; i<min.length;i++){
+  var html = registerTemplate(min[i]);
+}
+
+</script>
