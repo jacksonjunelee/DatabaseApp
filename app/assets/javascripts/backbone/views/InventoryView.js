@@ -16,26 +16,38 @@ App.Views.InventoryView = Backbone.View.extend({
   },
   renderNew: function(){
     var newRender = this.$el.html(this.newInventoryTemplate(this.model.toJSON()));
-    $('#inventory-list').append(newRender);
+    $('#main-list').append(newRender);
   },
   renderNewinList: function(){
     var newRender = this.$el.html(this.newInventoryTemplate(this.model.toJSON()));
-    $('#inventory-list').append(newRender);
+    $('#main-list').append(newRender);
   },
   createNewInventory:function(){
-    debugger;
-    var createObject = {};
+    var productObject = {};
+    productObject.product_name = $('input#product_name').val();
+    invenId = this.id.id;
+    App.productCollection.create(productObject,{success: function(resp){
+      console.log("successful callback")
+      var createObject = {};
 
-    createObject.amount_inhouse = $('input#amount_inhouse').val();
-    createObject.amount_sold = $('input#amount_sold').val();
-    createObject.price = $('input#price').val();
-    createObject.product_id =
-    createObject.location_id = this.id.id;
-    debugger;
-    App.InventoriesCollection.create(createObject);
+      createObject.amount_inhouse = $('input#amount_inhouse').val();
+      createObject.amount_sold = $('input#amount_sold').val();
+      createObject.price = $('input#price').val();
+      createObject.product_id = resp.id
+      createObject.location_id = invenId;
+      App.InventoriesCollection.create(createObject, {url: 'inventories',reset: true});
 
-    $('input#amount_inhouse').val('');
-    $('input#amount_sold').val('');
-    $('input#price').val('');
+      $('input#product_name').val('');
+      $('input#amount_inhouse').val('');
+      $('input#amount_sold').val('');
+      $('input#price').val('');
+
+    }});
+
+
+
   }
+
+
+
 });
