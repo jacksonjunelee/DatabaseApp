@@ -15,6 +15,7 @@ App.Views.InventoryView = Backbone.View.extend({
     this.$el.html(this.inventoryTemplate(this.model.toJSON()));
   },
   renderNew: function(){
+    // $('#main-list').empty();
     var newRender = this.$el.html(this.newInventoryTemplate(this.model.toJSON()));
     $('#main-list').append(newRender);
   },
@@ -23,6 +24,7 @@ App.Views.InventoryView = Backbone.View.extend({
     $('#main-list').append(newRender);
   },
   createNewInventory:function(){
+    console.log(this)
     var productObject = {};
     productObject.product_name = $('input#product_name').val();
     invenId = this.id.id;
@@ -35,7 +37,7 @@ App.Views.InventoryView = Backbone.View.extend({
       createObject.price = $('input#price').val();
       createObject.product_id = resp.id
       createObject.location_id = invenId;
-      App.InventoriesCollection.create(createObject, {url: 'inventories',reset: true});
+      App.InventoriesCollection.create(createObject, {url: 'inventories'});
 
       $('input#product_name').val('');
       $('input#amount_inhouse').val('');
