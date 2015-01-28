@@ -19,6 +19,12 @@ class InventoriesController < ApplicationController
     render json: inventory
   end
 
+  def update
+    inventory = Inventory.find(params[:id])
+    inventory.update(inventory_params)
+    render json: inventory
+  end
+
   private
 
   def inventory_params

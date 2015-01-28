@@ -52,14 +52,19 @@ App.Views.InventoryView = Backbone.View.extend({
     this.$el.html(this.editInventoryTemplate(this.model.toJSON()));
   },
   updateInventory:function(){
-    console.log("Brandon Sucks");
-    debugger;
     this.model.save({
       // product.product_name: $('input#updateproduct_name').val(),
       amount_inhouse: $('input#updateamount_inhouse').val(),
       amount_sold: $('input#updateamount_sold').val(),
       price: $('input#updateprice').val()
-    },{url: '/inventories/' + this.model.id });
+    },{url: '/inventories/' + this.model.id
+    // , success: function(resp){
+    //   resp.attributes.product.save({
+    //     product_name: $('input#updateproduct_name').val()
+    //   },{url: '/products/' + resp.id})
+    });
+    this.$el.html(this.inventoryTemplate(this.model.toJSON()));
+
   }
 
 
