@@ -30,6 +30,7 @@ gem 'backbars'
 gem 'devise'
 gem "paperclip", "~> 4.2"
 gem "aws-sdk"
+gem 'bootstrap-sass', '~> 3.1.1'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
