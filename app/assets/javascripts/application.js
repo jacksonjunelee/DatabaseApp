@@ -31,6 +31,8 @@ var App = {
 };
 
 $(function(){
+	if(window.location.pathname == "/"){
 	App.Routers.InventoriesRouter = new App.Routers.InventoriesRouter({pushState: true});
 	Backbone.history.start();
+}
 });

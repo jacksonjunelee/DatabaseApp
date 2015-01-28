@@ -1,11 +1,12 @@
 App.Views.InventoryListView = Backbone.View.extend({
-  el: "#inventory-list",
+  el: "#main-list",
   initialize: function(){
     console.log("Inventory list rendered");
-    this.listenTo(this.collection, 'reset', this.render);
+    this.listenTo(this.collection, 'add', this.render,this);
+    this.listenTo(this.collection, 'reset', this.render,this);
   },
   render:function(){
-    this.$el.empty();
+    // this.$el.html$('<section>').attr("id","inventory-list").appendTo($('body'))
     this.collection.each(this.renderInventory, this);
   },
   renderInventory:function(inventory){

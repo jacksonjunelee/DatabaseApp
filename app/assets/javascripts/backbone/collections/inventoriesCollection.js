@@ -1,21 +1,18 @@
+// Due to Association, it can also grab the locations information
 App.Collections.InventoriesCollection = Backbone.Collection.extend({
-  url: '/inventories',
+  // url: '/inventories',
   model: App.Models.InventoryModel,
-  // url: "/inventories/branch",
   initialize: function(){
     console.log("inventory collection");
-
-
+    // this.branch_id = options.branch_id
   },
 
-  fetchInventory: function() {
-
-    // this.fetch({url: 'inventories/'+ this.branch_id + '/branch'})
-    this.fetch({url: 'inventories/branch/1'});
+  fetchInventory: function(location_id) {
+    this.fetch({url: 'locations/' + location_id,reset: true})
+    App.inventoryListView.render();
+    // this.fetch({url: 'inventories/branch/1'});
+  },
+  parse:function(response){
+    return response[1];
   }
-  // parse: function(response){
-  //   return response[0];
-  // }
-
-
 });

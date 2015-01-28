@@ -61,3 +61,40 @@
 
    background-color: #f7f7f7;
  }
+
+ #registrationBranch{
+   box-sizing: padding-box;
+   text-align: center;
+
+   width: 100%;
+   padding: 12px;
+   margin: 12px 0;
+
+   border-radius: 5px;
+   border-bottom: 1px solid #bbb;
+   border-right: 1px solid #bbb;
+
+   background-color: #f7f7f7;
+ }
+
+ #main-list{
+   box-sizing: padding-box;
+   float: right;
+   padding-left: 20px;
+   font-size:20px;
+   font-weight: 200;
+   border-radius: 5px;
+   text-align: center;
+   width: 72%;
+   padding: 12px;
+   margin: 12px 0;
+   border-bottom: 1px solid #bbb;
+   border-right: 1px solid #bbb;
+
+   background-color: #f7f7f7;
+   /*height: 20px;
+   width: 20px;
+   margin: 2px;
+   padding: 2px;*/
+   -webkit-transition: transform 1s;
+ }

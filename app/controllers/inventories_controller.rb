@@ -14,17 +14,21 @@ class InventoriesController < ApplicationController
     render json: @location
   end
 
-  def branch
-    @branch_inventory = Inventory.where(locations_id:(params[:id]))
-    render json: @branch_inventory
+  def create
+    inventory = Inventory.create(inventory_params)
+    render json: inventory
   end
 
-
+  def update
+    inventory = Inventory.find(params[:id])
+    inventory.update(inventory_params)
+    render json: inventory
+  end
 
   private
 
-  # def inventory_params
-  #   params.require(:location).permit(:name, :address, :city, :state, :zip, :headquarters_id)
-  # end
+  def inventory_params
+    params.require(:inventory).permit(:amount_inhouse,:amount_sold,:price,:product_id,:location_id)
+  end
 
 end
