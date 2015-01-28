@@ -50,8 +50,6 @@ App.Views.LocationView = Backbone.View.extend({
     var id = this.el.firstChild.id;
     var InventoryView = new App.Views.InventoryView({model: new App.Models.InventoryModel(),id:id});
     InventoryView.renderNew();
-
-
   }
 
 });

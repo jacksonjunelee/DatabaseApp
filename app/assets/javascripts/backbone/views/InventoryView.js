@@ -3,11 +3,14 @@ App.Views.InventoryView = Backbone.View.extend({
   className: 'newInventory',
   events:{
     'click .create': 'createNewInventory',
+    'click .edit': 'renderEdit',
+    'click .update': 'updateInventory'
   },
   initialize:function(id){
     console.log("Inventory View Created");
     this.inventoryTemplate = HandlebarsTemplates['inventory'];
     this.newInventoryTemplate = HandlebarsTemplates['newInventory'];
+    this.editInventoryTemplate = HandlebarsTemplates['edit'];
     this.id = id;
     this.render();
   },
@@ -43,11 +46,20 @@ App.Views.InventoryView = Backbone.View.extend({
       $('input#amount_inhouse').val('');
       $('input#amount_sold').val('');
       $('input#price').val('');
-
     }});
-
-
-
+  },
+  renderEdit:function(){
+    this.$el.html(this.editInventoryTemplate(this.model.toJSON()));
+  },
+  updateInventory:function(){
+    console.log("Brandon Sucks");
+    debugger;
+    this.model.save({
+      // product.product_name: $('input#updateproduct_name').val(),
+      amount_inhouse: $('input#updateamount_inhouse').val(),
+      amount_sold: $('input#updateamount_sold').val(),
+      price: $('input#updateprice').val()
+    },{url: '/inventories/' + this.model.id });
   }
 
 
