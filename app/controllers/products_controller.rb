@@ -6,6 +6,7 @@ class ProductsController < ApplicationController
   end
 
   def create
+    binding.pry
     product = Product.create(product_params)
     render json: product
   end
@@ -20,7 +21,7 @@ class ProductsController < ApplicationController
 private
 
   def product_params
-    params.require(:product).permit(:product_name)
+    params.require(:product).permit(:product_name,:image)
   end
 
 end

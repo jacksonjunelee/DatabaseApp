@@ -11,7 +11,10 @@
  * file per style scope.
  *
  *= require_tree .
+ *= require dropzone.min
  *= require_self
+ *= require jquery.fileupload
+ *= require jquery.fileupload-ui
  */
  @import url(http://fonts.googleapis.com/css?family=Lato:100,300,300italic);
  body {
@@ -97,4 +100,13 @@
    margin: 2px;
    padding: 2px;*/
    -webkit-transition: transform 1s;
+ }
+
+ p.navbar-text{
+   display: inline;
+ }
+
+ input#search{
+   float: right;
+   margin-right: 50px;
  }

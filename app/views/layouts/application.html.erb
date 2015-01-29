@@ -2,13 +2,11 @@
 <html>
 <head>
   <title>DatabaseApp</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=0.5">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/3.12.0/dropzone.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/3.12.0/css/dropzone.css"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/3.12.0/images/spritemap.png"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/3.12.0/images/spritemap@2x.png"></script>
 </head>
 <body class="">
 
@@ -28,7 +26,9 @@
   <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
   <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
   <% end %>
+</p>
 
+<input type="text" name="search" id="search" placeholder='Search'>
 
 <section id="headquarter-section"></section>
 <section id="new-branch"></section>
