@@ -13,7 +13,7 @@ App.Views.LocationListView = Backbone.View.extend({
   renderLocation:function(location){
     var locationView = new App.Views.LocationView({model: location});
     locationView.render();
-    this.$el.append(locationView.$el);
+    this.$el.prepend(locationView.$el);
   }
 
 

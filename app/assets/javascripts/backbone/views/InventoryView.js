@@ -109,6 +109,7 @@ App.Views.InventoryView = Backbone.View.extend({
   //
   // },
   renderEdit:function(){
+    debugger;
     this.$el.html(this.editInventoryTemplate(this.model.toJSON()));
   },
   updateInventory:function(){
