@@ -23,6 +23,8 @@
 //= require_tree ./backbone/views
 //= require_tree ./templates
 //= require_tree .
+//= require dropzone.min
+//= require jquery-fileupload
 var App = {
 	Models: {},
 	Collections: {},

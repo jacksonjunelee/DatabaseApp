@@ -37,6 +37,8 @@ GEM
     backbars (0.0.11)
       handlebars_assets
     bcrypt (3.1.9)
+    bootstrap-sass (3.1.1.1)
+      sass (~> 3.2)
     builder (3.2.2)
     climate_control (0.0.3)
       activesupport (>= 3.0)
@@ -69,6 +71,10 @@ GEM
     jbuilder (2.2.6)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
+    jquery-fileupload-rails (0.4.4)
+      actionpack (>= 3.1)
+      railties (>= 3.1)
+      sass (>= 3.2)
     jquery-rails (3.1.2)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
@@ -159,9 +165,11 @@ PLATFORMS
 DEPENDENCIES
   aws-sdk
   backbars
+  bootstrap-sass (~> 3.1.1)
   coffee-rails (~> 4.0.0)
   devise
   jbuilder (~> 2.0)
+  jquery-fileupload-rails
   jquery-rails
   paperclip (~> 4.2)
   pg

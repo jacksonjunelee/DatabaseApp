@@ -10,6 +10,15 @@ class ProductsController < ApplicationController
     render json: product
   end
 
+  def search
+    product_result = Product.where({product_name: params[:query]})
+    inventory_result = Inventory.where({product_id: product_result[0].id})
+    locations = inventory_result.map do |location|
+      location.location
+    end
+    render json: [product_result,inventory_result,locations]
+  end
+
   # wokring feature, not working
   # def update
   #   product = Product.find(params[:id])
@@ -20,7 +29,7 @@ class ProductsController < ApplicationController
 private
 
   def product_params
-    params.require(:product).permit(:product_name)
+    params.require(:product).permit(:product_name,:image)
   end
 
 end

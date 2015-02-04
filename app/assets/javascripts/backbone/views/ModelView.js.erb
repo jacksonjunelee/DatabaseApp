@@ -28,8 +28,8 @@ App.Views.LocationView = Backbone.View.extend({
     createObject.city = $('input#City').val();
     createObject.state = $('input#State').val();
     createObject.zip = $('input#Zip').val();
-    createObject.headquarter_id = parseInt($('div').attr("id"));
-    App.locationCollection.create(createObject);
+    createObject.headquarter_id = parseInt($('div.headquarter').attr("id"));
+    App.locationCollection.create(createObject,{add: true});
 
     $('input#Name').val('');
     $('input#Address').val('');
