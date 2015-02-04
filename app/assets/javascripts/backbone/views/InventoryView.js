@@ -33,10 +33,11 @@ App.Views.InventoryView = Backbone.View.extend({
     invenId = this.id.id;
 
     var formData = new FormData();
-    formData.product = {}
-    formData.product.append("product_name",product_name);
-    formData.product.append("image",input);
+
+    formData.append("product_name",product_name);
+    formData.append("image",input);
     $.ajax({
+      dataType: "json",
       url: "/products",
       data: formData,
       processData: false,

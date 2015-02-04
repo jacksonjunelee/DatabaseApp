@@ -8,7 +8,11 @@ Rails.application.routes.draw do
   end
 
   resources :inventories, except: [:new, :edit]
-  resources :products, only: [:index, :create, :update]
+  resources :products, only: [:index, :create, :update] do
+    collection do
+      get "search/:query" => "products#search", as: :search
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

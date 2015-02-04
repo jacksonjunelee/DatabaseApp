@@ -6,9 +6,17 @@ class ProductsController < ApplicationController
   end
 
   def create
-    binding.pry
     product = Product.create(product_params)
     render json: product
+  end
+
+  def search
+    product_result = Product.where({product_name: params[:query]})
+    inventory_result = Inventory.where({product_id: product_result[0].id})
+    locations = inventory_result.map do |location|
+      location.location
+    end
+    render json: [product_result,inventory_result,locations]
   end
 
   # wokring feature, not working

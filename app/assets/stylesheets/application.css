@@ -106,7 +106,29 @@
    display: inline;
  }
 
- input#search{
+ #search-form{
    float: right;
    margin-right: 50px;
+ }
+
+ #searchResults{
+   box-sizing: padding-box;
+   text-align: center;
+
+   width: 100%;
+   padding: 12px;
+   margin: 12px 0;
+
+   border-radius: 5px;
+   border-bottom: 1px solid #bbb;
+   border-right: 1px solid #bbb;
+
+   background-color: #f7f7f7;
+
+ }
+
+ .search-list{
+   padding-top: 20px;
+   text-align: center; 
+
  }
