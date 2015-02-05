@@ -62,8 +62,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     companies = Location.all
     haveArray = companies.map{ |company| company.id if resource.company == company.name.downcase}.compact
     if haveArray.empty?
-      # company_registration_locations_path(resource)
-      render "users/registrations/new_company"
+      company_registration_locations_path(current_user)
     else
       resource.location_id = haveArray[0]
       resource.save
