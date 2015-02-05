@@ -1,9 +1,23 @@
 Rails.application.routes.draw do
+  devise_for :users, :controllers => { registrations: 'users/registrations' }
   root 'application#index'
-  resources :locations, only: [:index, :show, :create, :update, :destroy]
-  get 'sessions/new' => 'sessions#new', as: 'login'
-  post 'sessions'    => 'sessions#create'
-  delete 'sessions'  => 'sessions#destroy'
+
+  resources :locations, only: [:index, :show, :create, :update, :destroy] do
+    collection do
+      get "branch_registration/:id" => "locations#registration", as: :branch_registration
+      get "company_registration" => "locations#company_registration", as: :company_registration
+      post '/company_create' => "locations#company_create", as: :company_create
+    end
+  end
+
+  resources :inventories, except: [:new, :edit]
+  resources :products, only: [:index, :create, :update] do
+    collection do
+      get "search/:query" => "products#search", as: :search
+    end
+  end
+  resources :histories, only: [:index,:create]
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

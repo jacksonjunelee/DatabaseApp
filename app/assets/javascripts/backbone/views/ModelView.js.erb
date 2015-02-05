@@ -1,0 +1,57 @@
+App.Views.LocationView = Backbone.View.extend({
+  tagName: 'div',
+  className: 'location',
+  events:{
+    'click .showInventory': 'grabListInventory',
+    'click .create': 'createBranch',
+    'click .addInventory': 'addInventoryForm'
+  },
+  initialize:function(){
+    console.log("One VIew Created");
+    this.locationTemplate = HandlebarsTemplates['location'];
+    this.newBranchTemplate = HandlebarsTemplates['newBranch'];
+  },
+  render: function(){
+    this.$el.html(this.locationTemplate(this.model.toJSON()));
+  },
+  newBranch:function(){
+    console.log("new Branch template ");
+    $('#main-list').empty();
+    var newBranch = this.$el.prepend(this.newBranchTemplate(this.model.toJSON()));
+    $('#main-list').append(newBranch);
+  },
+  createBranch:function(){
+    var createObject = {};
+
+    createObject.name = $('input#Name').val();
+    createObject.address = $('input#Address').val();
+    createObject.city = $('input#City').val();
+    createObject.state = $('input#State').val();
+    createObject.zip = $('input#Zip').val();
+    createObject.headquarter_id = parseInt($('div.headquarter').attr("id"));
+    App.locationCollection.create(createObject,{add: true});
+
+    $('input#Name').val('');
+    $('input#Address').val('');
+    $('input#City').val('');
+    $('input#State').val('');
+    $('input#Zip').val('');
+  },
+  grabListInventory:function(){
+    $('section#main-list').empty();
+    // $('<section>').attr("id","inventory-list").appendTo($('body'))
+    var id = this.el.firstChild.id;
+    var InventoryView = new App.Views.InventoryView({model: new App.Models.InventoryModel(),id: id});
+    InventoryView.renderNewinList();
+    // var id = this.model.attributes.id;
+    App.InventoriesCollection.fetchInventory(id);
+    App.productCollection.fetch();
+  },
+  addInventoryForm:function(){
+    $('section#main-list').empty();
+    var id = this.el.firstChild.id;
+    var InventoryView = new App.Views.InventoryView({model: new App.Models.InventoryModel(),id:id});
+    InventoryView.renderNew();
+  }
+
+});

@@ -23,6 +23,8 @@
 //= require_tree ./backbone/views
 //= require_tree ./templates
 //= require_tree .
+//= require dropzone.min
+//= require jquery-fileupload
 var App = {
 	Models: {},
 	Collections: {},
@@ -31,11 +33,8 @@ var App = {
 };
 
 $(function(){
-	var headquarter = new App.Models.Headquarter({parse:true});
- 	headquarterView = new App.Views.HeadquarterView({model: headquarter});
-	headquarterView.render();
-	App.collection = new App.Collections.LocationCollection();
-	App.locationsView = new App.Views.LocationListView({ collection: App.collection });
-	App.collection.fetch({reset:true});
-
-})
+	if(window.location.pathname == "/"){
+	App.Routers.InventoriesRouter = new App.Routers.InventoriesRouter({pushState: true});
+	Backbone.history.start();
+}
+});

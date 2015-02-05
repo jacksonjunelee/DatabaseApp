@@ -11,12 +11,39 @@
  * file per style scope.
  *
  *= require_tree .
+ *= require dropzone.min
  *= require_self
+ *= require jquery.fileupload
+ *= require jquery.fileupload-ui
  */
+
+ /*@import url(http://fonts.googleapis.com/css?family=Raleway:500);*/
+
+ body {
+   font-style: normal;
+   background: rgb(14, 116, 175);
+   font-family: 'Raleway', Helvetica;
+   font-weight: 400;
+   color: rgb(77, 77, 77);
+ }
+
+ #location-list {
+   float: left;
+   /*padding-right: 300px;*/
+   border: 1px solid rgba(0,0,0,0);
+   font-weight: 100;
+   border-radius: 50%;
+   text-align: center;
+   /*height: 20px;
+   width: 20px;
+   margin: 2px;
+   padding: 2px;*/
+   -webkit-transition: transform 1s;
+ }
  .location {
    box-sizing: padding-box;
 
-   width: 30%;
+   width: 100%;
    padding: 12px;
    margin: 12px 0;
 
@@ -24,5 +51,109 @@
    border-bottom: 1px solid #bbb;
    border-right: 1px solid #bbb;
 
-   background-color: #f7f7f7;
+   background-color: #e2e4e6;
+ }
+
+ .headquarter {
+   box-sizing: padding-box;
+   text-align: center;
+
+   width: 100%;
+   padding: 12px;
+   margin: 12px 0;
+
+   border-radius: 5px;
+   border-bottom: 1px solid #bbb;
+   border-right: 1px solid #bbb;
+
+   background-color: #e2e4e6;
+ }
+
+ #registrationBranch{
+   box-sizing: padding-box;
+   text-align: center;
+
+   width: 100%;
+   padding: 12px;
+   margin: 12px 0;
+
+   border-radius: 5px;
+   border-bottom: 1px solid #bbb;
+   border-right: 1px solid #bbb;
+
+   background-color: #e2e4e6;
+ }
+
+ #main-list{
+   box-sizing: padding-box;
+   /*overflow: scroll;*/
+   float: right;
+   padding-left: 20px;
+   font-size:20px;
+   font-weight: 200;
+   border-radius: 5px;
+   text-align: center;
+   width: 72%;
+   padding: 12px;
+   margin: 12px 0;
+   border-bottom: 1px solid #bbb;
+   border-right: 1px solid #bbb;
+
+   background-color: #e2e4e6;
+   /*height: 20px;
+   width: 20px;
+   margin: 2px;
+   padding: 2px;*/
+   -webkit-transition: transform 1s;
+ }
+
+ p.navbar-text{
+   display: inline;
+ }
+
+ #search-form{
+   float: right;
+   margin-right: 50px;
+ }
+
+ #searchResults{
+   box-sizing: padding-box;
+   text-align: center;
+
+   width: 100%;
+   padding: 12px;
+   margin: 12px 0;
+
+   border-radius: 5px;
+   border-bottom: 1px solid #bbb;
+   border-right: 1px solid #bbb;
+
+   background-color: #e2e4e6;
+
+ }
+
+ .search-list{
+   padding-top: 20px;
+   text-align: center;
+
+ }
+
+ .navbar-text, .alert {
+   color:#000000;
+
+ }
+
+ #company_registration{
+   margin: 0 auto;
+   box-sizing: padding-box;
+   text-align: center;
+
+   width: 50%;
+   padding: 12px;
+
+   border-radius: 5px;
+   border-bottom: 1px solid #bbb;
+   border-right: 1px solid #bbb;
+
+   background-color: #e2e4e6;
  }

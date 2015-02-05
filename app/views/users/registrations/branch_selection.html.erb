@@ -1,0 +1,14 @@
+<% allHead= Location.all.map{|moo| moo if moo.headquarter_id.blank?}.compact %>
+<% moo = allHead.map{|head| head if head.name.downcase == current_user.company.downcase}.compact %>
+<% cat = moo[0].branches.to_a%>
+
+<% cat.each do |branch|  %>
+<%= form_tag('/music') do -%>
+<div id="registrationBranch">
+  <h1><%= branch.name %></h1>
+  <p><%= branch.address%> <%=branch.city%>, <%=branch.state%>, <%=branch.zip%></p>
+<%= hidden_field_tag "headquarter_id",branch.id %>
+<%= submit_tag 'Save' %>
+</div>
+<% end %>
+<% end %>
