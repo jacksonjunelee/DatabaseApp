@@ -1,3 +1,4 @@
+#add product add feature to location?
 class LocationsController < ApplicationController
 
   def index
