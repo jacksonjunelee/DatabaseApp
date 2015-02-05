@@ -59,7 +59,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
   protected
   def after_sign_up_path_for(resource)
-    branch_registration_locations_path(resource)
+    companies = Location.all
+    haveArray = companies.map{ |company| company.id if resource.company == company.name.downcase}.compact
+    if haveArray.empty?
+      # company_registration_locations_path(resource)
+      render "users/registrations/new_company"
+    else
+      resource.location_id = haveArray[0]
+      resource.save
+      after_sign_in_path_for(resource)
+    end
   end
 
   private

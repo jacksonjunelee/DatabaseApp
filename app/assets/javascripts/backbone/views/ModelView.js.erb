@@ -10,15 +10,15 @@ App.Views.LocationView = Backbone.View.extend({
     console.log("One VIew Created");
     this.locationTemplate = HandlebarsTemplates['location'];
     this.newBranchTemplate = HandlebarsTemplates['newBranch'];
-    this.newBranch();
   },
   render: function(){
     this.$el.html(this.locationTemplate(this.model.toJSON()));
   },
   newBranch:function(){
-    console.log("new Branch template ")
+    console.log("new Branch template ");
+    $('#main-list').empty();
     var newBranch = this.$el.prepend(this.newBranchTemplate(this.model.toJSON()));
-    $("#new-branch").append(newBranch);
+    $('#main-list').append(newBranch);
   },
   createBranch:function(){
     var createObject = {};
@@ -38,6 +38,7 @@ App.Views.LocationView = Backbone.View.extend({
     $('input#Zip').val('');
   },
   grabListInventory:function(){
+    $('section#main-list').empty();
     // $('<section>').attr("id","inventory-list").appendTo($('body'))
     var id = this.el.firstChild.id;
     var InventoryView = new App.Views.InventoryView({model: new App.Models.InventoryModel(),id: id});
@@ -47,6 +48,7 @@ App.Views.LocationView = Backbone.View.extend({
     App.productCollection.fetch();
   },
   addInventoryForm:function(){
+    $('section#main-list').empty();
     var id = this.el.firstChild.id;
     var InventoryView = new App.Views.InventoryView({model: new App.Models.InventoryModel(),id:id});
     InventoryView.renderNew();
