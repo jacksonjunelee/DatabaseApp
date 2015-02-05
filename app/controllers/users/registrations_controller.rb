@@ -61,11 +61,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def after_sign_up_path_for(resource)
     companies = Location.all
     haveArray = companies.map{ |company| company.id if resource.company == company.name.downcase}.compact
-    binding.pry
     if haveArray.empty?
-      resources = resource
-      resources.
-      company_registration_locations_path(resources)
+      company_registration_locations_path(resource)
     else
       resource.location_id = haveArray[0]
       resource.save

@@ -20,14 +20,29 @@ class LocationsController < ApplicationController
   end
 
   def registration
-  render "users/registrations/branch_selection"
+    render "users/registrations/branch_selection"
+  end
+
+  def company_registration
+    @location = Location.new
+  end
+
+  def company_create
+    location = Location.create(location_params)
+    current_user.location_id = location.id
+    if current_user.save
+      after_sign_in_path_for(current_user)
+    else
+      render "users/registrations/new_company"
+      # company_registration_locations_path(current_user)
+    end
   end
 
 
 private
 
   def location_params
-    params.require(:location).permit(:name, :address, :city, :state, :zip, :headquarter_id)
+    params.require(:location).permit(:name, :address, :city, :state, :zip, :headquarter_id, :phone)
   end
 
 end

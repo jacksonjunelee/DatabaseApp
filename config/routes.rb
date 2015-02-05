@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   root 'application#index'
   resources :locations, only: [:index, :show, :create, :update, :destroy] do
     collection do
-    get "branch_registration/:id" => "locations#registration", as: :branch_registration
-    get "company_registration" => "locations#company_registration", as: :company_registration
+      get "branch_registration/:id" => "locations#registration", as: :branch_registration
+      get "company_registration" => "locations#company_registration", as: :company_registration
+      post '/company_create' => "locations#company_create", as: :company_create
     end
   end
 

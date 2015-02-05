@@ -1,0 +1,24 @@
+<h1> Welcome to Inventory Check'in </h1>
+<h3> We noticed that your company is new please fill the form below to register your company </h3>
+
+ <%= form_tag(company_create_locations_path) do %>
+ <div id="company_registration">
+   <%= label_tag 'name'%><br>
+   <%= text_field_tag "location[name]",current_user.company %><br>
+   <%= label_tag 'address' %><br>
+   <%= text_field_tag "location[address]",'Enter Address here' %><br>
+   <%= label_tag 'city' %><br>
+   <%= text_field_tag "location[city]",'Enter City here' %><br>
+   <%= label_tag 'state' %><br>
+   <%= text_field_tag "location[state]",'Enter State here' %><br>
+   <%= label_tag 'zip' %><br>
+   <%= text_field_tag "location[zip]",'Enter Zip here' %><br>
+   <%= label_tag 'phone' %><br>
+   <%= text_field_tag "location[phone]",'Enter Phone here' %><br>
+ <%= submit_tag 'Save' %>
+ <% end %>
+</div>
+  <!-- <%= form_for @location do |f| %>
+  <%= company = current_user.company %>
+  <%= f.label :name %>
+  <% end %> -->
