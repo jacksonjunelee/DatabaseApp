@@ -16,11 +16,14 @@
  *= require jquery.fileupload
  *= require jquery.fileupload-ui
  */
- @import url(http://fonts.googleapis.com/css?family=Lato:100,300,300italic);
+ /*@import url(http://fonts.googleapis.com/css?family=Raleway:500);*/
+
  body {
-   background: snow;
-   font-family: Lato;
-   font-weight: 300;
+   font-style: normal;
+   background: rgb(14, 116, 175);
+   font-family: 'Raleway', Helvetica;
+   font-weight: 400;
+   color: rgb(77, 77, 77);
  }
 
  #location-list {
@@ -47,7 +50,7 @@
    border-bottom: 1px solid #bbb;
    border-right: 1px solid #bbb;
 
-   background-color: #f7f7f7;
+   background-color: #e2e4e6;
  }
 
  .headquarter {
@@ -62,7 +65,7 @@
    border-bottom: 1px solid #bbb;
    border-right: 1px solid #bbb;
 
-   background-color: #f7f7f7;
+   background-color: #e2e4e6;
  }
 
  #registrationBranch{
@@ -77,11 +80,12 @@
    border-bottom: 1px solid #bbb;
    border-right: 1px solid #bbb;
 
-   background-color: #f7f7f7;
+   background-color: #e2e4e6;
  }
 
  #main-list{
    box-sizing: padding-box;
+   /*overflow: scroll;*/
    float: right;
    padding-left: 20px;
    font-size:20px;
@@ -94,7 +98,7 @@
    border-bottom: 1px solid #bbb;
    border-right: 1px solid #bbb;
 
-   background-color: #f7f7f7;
+   background-color: #e2e4e6;
    /*height: 20px;
    width: 20px;
    margin: 2px;
@@ -123,12 +127,17 @@
    border-bottom: 1px solid #bbb;
    border-right: 1px solid #bbb;
 
-   background-color: #f7f7f7;
+   background-color: #e2e4e6;
 
  }
 
  .search-list{
    padding-top: 20px;
-   text-align: center; 
+   text-align: center;
+
+ }
+
+ .navbar-text, .alert {
+   color:#000000;
 
  }

@@ -13,6 +13,10 @@ App.Collections.InventoriesCollection = Backbone.Collection.extend({
     // this.fetch({url: 'inventories/branch/1'});
   },
   parse:function(response){
-    return response[1];
+    var json = response[1];
+    json.forEach(function (element,index){
+      element.name = response[0].name;
+    });
+    return json
   }
 });

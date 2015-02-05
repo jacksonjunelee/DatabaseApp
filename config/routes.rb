@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :locations, only: [:index, :show, :create, :update, :destroy] do
     collection do
     get "branch_registration/:id" => "locations#registration", as: :branch_registration
+    get "company_registration" => "locations#company_registration", as: :company_registration
     end
   end
 
@@ -13,6 +14,7 @@ Rails.application.routes.draw do
       get "search/:query" => "products#search", as: :search
     end
   end
+  resources :histories, only: [:index,:create]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

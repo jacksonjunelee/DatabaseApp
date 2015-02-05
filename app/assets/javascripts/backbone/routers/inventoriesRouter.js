@@ -11,7 +11,6 @@ App.Routers.InventoriesRouter = Backbone.Router.extend({
     $('<button>').attr('id','search-button').text('Search').appendTo('div#search-form');
 
     $('<section>').attr('id','headquarter-section').appendTo('body');
-    $('<section>').attr('id','new-branch').appendTo('body');
     $('<section>').attr('id','location-list').appendTo('body');
     $('<section>').attr('id','main-list').appendTo('body');
     App.headquarter = new App.Models.Headquarter();
@@ -30,6 +29,10 @@ App.Routers.InventoriesRouter = Backbone.Router.extend({
     App.searchCollection = new App.Collections.SearchCollection();
     App.Search = new App.Views.Search();
     App.searchListView = new App.Views.SearchListView({collection: App.searchCollection});
+
+    App.HistoriesCollection = new App.Collections.HistoriesCollection();
+    App.HistoryListView = new App.Views.HistoryListView({collection: App.HistoriesCollection});
+
   },
 
   renderHeadquarter: function(){
