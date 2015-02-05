@@ -1,3 +1,4 @@
+#add product add feature to location?
 class LocationsController < ApplicationController
 
   def index
@@ -19,9 +20,9 @@ class LocationsController < ApplicationController
     render json: location
   end
 
-  def registration
-    render "users/registrations/branch_selection"
-  end
+  # def registration
+  #   render "users/registrations/branch_selection"
+  # end
 
   def company_registration
     @location = Location.new
@@ -31,10 +32,11 @@ class LocationsController < ApplicationController
     location = Location.create(location_params)
     current_user.location_id = location.id
     if current_user.save
-      after_sign_in_path_for(current_user)
+      redirect_to root_path
+      # after_sign_in_path_for(current_user)
     else
-      render "users/registrations/new_company"
-      # company_registration_locations_path(current_user)
+      # render "users/registrations/new_company"
+      company_registration_locations_path(current_user)
     end
   end
 
