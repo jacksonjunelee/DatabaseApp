@@ -14,5 +14,4 @@ App.Views.InventoryListView = Backbone.View.extend({
     this.$el.append(InventoryView.$el);
   }
 
-
 });

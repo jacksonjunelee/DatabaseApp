@@ -26,68 +26,11 @@ App.Views.InventoryView = Backbone.View.extend({
     var newRender = this.$el.html(this.newInventoryTemplate(this.model.toJSON()));
     $('#main-list').append(newRender);
   },
-  createNewInventory:function(){
-    var productObject = {};
-    productObject.product_name = $('input#product_name').val();
-    invenId = this.id.id;
-    App.productCollection.create(productObject,{success: function(resp){
-      console.log("successful callback")
-      var createObject = {};
-
-      createObject.amount_inhouse = $('input#amount_inhouse').val();
-      createObject.amount_sold = $('input#amount_sold').val();
-      createObject.price = $('input#price').val();
-      createObject.product_id = resp.id
-      createObject.location_id = invenId;
-      App.InventoriesCollection.create(createObject, {url: 'inventories'});
-
-      $('input#product_name').val('');
-      $('input#amount_inhouse').val('');
-      $('input#amount_sold').val('');
-      $('input#price').val('');
-    }});
-  },
   // createNewInventory:function(){
-  //   console.log(this)
-  //   var product_name = $('input#product_name').val();
-  //   var input = $('input#image')[0].files[0];
+  //   var productObject = {};
+  //   productObject.product_name = $('input#product_name').val();
   //   invenId = this.id.id;
-  //
-  //   var formData = new FormData();
-  //
-  //   formData.append("product_name",product_name);
-  //   formData.append("image",input);
-  //   $.ajax({
-  //     dataType: "json",
-  //     url: "/products",
-  //     data: formData,
-  //     processData: false,
-  //     contentType: false,
-  //     type: 'post',
-  //     success: function(resp){
-  //       console.log("successful callback")
-  //       var createObject = {};
-  //
-  //       createObject.amount_inhouse = $('input#amount_inhouse').val();
-  //       createObject.amount_sold = $('input#amount_sold').val();
-  //       createObject.price = $('input#price').val();
-  //       createObject.product_id = resp.id;
-  //       createObject.location_id = invenId;
-  //       App.InventoriesCollection.create(createObject, {url: 'inventories'});
-  //
-  //       $('input#product_name').val('');
-  //       $('input#amount_inhouse').val('');
-  //       $('input#amount_sold').val('');
-  //       $('input#price').val('');
-  //     }
-  //   });
-  // },
-  // imageUpload:function(resp){
-  //       // debugger;
-  //   $('imageUpload').fileupload ({
-  //     dataType:'json',
-  //     add : function(data){return data.submit();},
-  //     success: function(resp){
+  //   App.productCollection.create(productObject,{success: function(resp){
   //     console.log("successful callback")
   //     var createObject = {};
   //
@@ -104,9 +47,62 @@ App.Views.InventoryView = Backbone.View.extend({
   //     $('input#price').val('');
   //   }});
   // },
+  createNewInventory:function(){
+    console.log(this)
+    var product_name = $('input#product_name').val();
+    var input = $('input#image')[0].files[0];
+    invenId = this.id.id;
 
-  //
-  // },
+    var formData = new FormData();
+
+    formData.append("product_name",product_name);
+    formData.append("image",input);
+    $.ajax({
+      dataType: "json",
+      url: "/products",
+      data: formData,
+      processData: false,
+      contentType: false,
+      type: 'post',
+      success: function(resp){
+        console.log("successful callback")
+        var createObject = {};
+
+        createObject.amount_inhouse = $('input#amount_inhouse').val();
+        createObject.amount_sold = $('input#amount_sold').val();
+        createObject.price = $('input#price').val();
+        createObject.product_id = resp.id;
+        createObject.location_id = invenId;
+        App.InventoriesCollection.create(createObject, {url: 'inventories'});
+
+        $('input#product_name').val('');
+        $('input#amount_inhouse').val('');
+        $('input#amount_sold').val('');
+        $('input#price').val('');
+      }
+    });
+  },
+  imageUpload:function(resp){
+    $('imageUpload').fileupload ({
+      dataType:'json',
+      add : function(data){return data.submit();},
+      success: function(resp){
+      console.log("successful callback")
+      var createObject = {};
+
+      createObject.amount_inhouse = $('input#amount_inhouse').val();
+      createObject.amount_sold = $('input#amount_sold').val();
+      createObject.price = $('input#price').val();
+      createObject.product_id = resp.id
+      createObject.location_id = invenId;
+      App.InventoriesCollection.create(createObject, {url: 'inventories'});
+
+      $('input#product_name').val('');
+      $('input#amount_inhouse').val('');
+      $('input#amount_sold').val('');
+      $('input#price').val('');
+    }});
+  },
   renderEdit:function(){
     this.$el.html(this.editInventoryTemplate(this.model.toJSON()));
 

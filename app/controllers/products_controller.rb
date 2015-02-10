@@ -5,8 +5,13 @@ class ProductsController < ApplicationController
     render json: @products
   end
 
+  def show
+    @product = Product.find(params[:id]).image.url
+    render json: @product
+  end
+
   def create
-    product = Product.create(product_params)
+    product = Product.create({product_name: params[:product_name], image: params[:image]})
     render json: product
   end
 
@@ -29,7 +34,7 @@ class ProductsController < ApplicationController
 private
 
   def product_params
-    params.require(:product).permit(:product_name)
+    params.require(:product).permit(:product_name, :image)
   end
 
 end

@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
 
   resources :inventories, except: [:new, :edit]
-  resources :products, only: [:index, :create, :update] do
+  resources :products, only: [:index, :show, :create, :update] do
     collection do
       get "search/:query" => "products#search", as: :search
     end

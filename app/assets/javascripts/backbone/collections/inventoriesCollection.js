@@ -16,7 +16,8 @@ App.Collections.InventoriesCollection = Backbone.Collection.extend({
     var json = response[1];
     json.forEach(function (element,index){
       element.name = response[0].name;
+      element.image_url = response[2][index];
     });
-    return json
+    return json;
   }
 });

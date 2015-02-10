@@ -17,8 +17,8 @@ App.Views.HeadquarterView = Backbone.View.extend({
     $('section#main-list').empty();
     // $('<section>').attr("id","inventory-list").appendTo($('body'))
     var id = this.el.firstChild.id;
-    var InventoryView = new App.Views.InventoryView({model: new App.Models.InventoryModel(),id: id});
-    InventoryView.renderNewinList();
+    // var InventoryView = new App.Views.InventoryView({model: new App.Models.InventoryModel(),id: id});
+    // InventoryView.renderNewinList();
     // var id = this.model.attributes.id;
     App.InventoriesCollection.fetchInventory(id);
     App.productCollection.fetch();
