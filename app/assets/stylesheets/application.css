@@ -157,3 +157,6 @@
 
    background-color: #e2e4e6;
  }
+
+table { table-layout: fixed; }
+td { width: 1%; }

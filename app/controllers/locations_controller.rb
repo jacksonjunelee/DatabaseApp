@@ -13,7 +13,10 @@ class LocationsController < ApplicationController
     @inventories = @location.inventories.map do |inventory|
       inventory.as_json(include: :product)
     end
-    render json: [@location,@inventories]
+    @images = @location.inventories.map do |inventory|
+      inventory.product.image_url
+    end
+    render json: [@location,@inventories,@images]
   end
 
   def create
