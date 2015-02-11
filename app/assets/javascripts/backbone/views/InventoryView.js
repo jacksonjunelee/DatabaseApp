@@ -5,7 +5,8 @@ App.Views.InventoryView = Backbone.View.extend({
     'click .create': 'createNewInventory',
     'click .edit': 'renderEdit',
     'click .update': 'updateInventory',
-    'click .delete': 'deleteInventory'
+    'click .delete': 'deleteInventory',
+    'click .show': 'showDetailedInventory'
   },
   initialize:function(id){
     console.log("Inventory View Created");
@@ -13,6 +14,7 @@ App.Views.InventoryView = Backbone.View.extend({
     this.inventoryTemplate = HandlebarsTemplates['inventory'];
     this.newInventoryTemplate = HandlebarsTemplates['newInventory'];
     this.editInventoryTemplate = HandlebarsTemplates['edit'];
+    this.showTemplate = HandlebarsTemplates['show'];
     this.id = id;
     this.render();
   },
@@ -141,6 +143,19 @@ App.Views.InventoryView = Backbone.View.extend({
   renderNothing: function() {
     this.$el.empty();
   },
+
+  showDetailedInventory: function(){
+    $('section#main-list').empty();
+    this.amem();
+
+  },
+
+  amem: function(){
+    this.$el.html(this.showTemplate(this.model.toJSON()));
+    App.inventoryListView.$el.append(this.$el);
+
+
+  }
 
 
 
