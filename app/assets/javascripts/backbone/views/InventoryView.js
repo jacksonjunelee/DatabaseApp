@@ -55,12 +55,14 @@ App.Views.InventoryView = Backbone.View.extend({
     console.log(this)
     var product_name = $('input#product_name').val();
     var input = $('input#image')[0].files[0];
+    var description = $('textarea#description').val();
     invenId = this.id.id;
 
     var formData = new FormData();
 
     formData.append("product_name",product_name);
     formData.append("image",input);
+    formData.append("description",description);
     $.ajax({
       dataType: "json",
       url: "/products",
@@ -83,6 +85,7 @@ App.Views.InventoryView = Backbone.View.extend({
         $('input#amount_inhouse').val('');
         $('input#amount_sold').val('');
         $('input#price').val('');
+        $('textarea#description').val('');
       }
     });
   },

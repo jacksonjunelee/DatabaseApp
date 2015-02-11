@@ -11,7 +11,7 @@ class ProductsController < ApplicationController
   end
 
   def create
-    product = Product.create({product_name: params[:product_name], image: params[:image]})
+    product = Product.create({product_name: params[:product_name], image: params[:image], description: params[:description]})
     render json: product
   end
 
