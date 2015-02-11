@@ -25,6 +25,12 @@ class InventoriesController < ApplicationController
     render json: inventory
   end
 
+  def destroy
+    inventory = Inventory.find(params[:id])
+    inventory.destroy
+    render json: inventory
+  end
+
   private
 
   def inventory_params

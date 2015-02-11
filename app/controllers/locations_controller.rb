@@ -14,7 +14,15 @@ class LocationsController < ApplicationController
     @images = @location.inventories.map do |inventory|
       inventory.product.image_url
     end
-    render json: [@location,@inventories,@images]
+     if @location.headquarter != nil
+      @headquarter = @location.headquarter.inventories.map do |inventory|
+        inventory.as_json(include: :product)
+      end
+      @H_images = @location.headquarter.inventories.map do |inventory|
+        inventory.product.image_url
+      end
+    end
+    render json: [@location,@inventories,@images,@headquarter,@H_images]
   end
 
   def create
