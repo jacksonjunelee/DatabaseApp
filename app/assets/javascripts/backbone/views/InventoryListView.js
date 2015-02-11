@@ -7,6 +7,8 @@ App.Views.InventoryListView = Backbone.View.extend({
   },
   render:function(){
     // this.$el.html$('<section>').attr("id","inventory-list").appendTo($('body'))
+    inventoryDetails = HandlebarsTemplates['inventoryDetails'];
+    this.$el.append(inventoryDetails);
     this.collection.each(this.renderInventory, this);
   },
   renderInventory:function(inventory){

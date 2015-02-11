@@ -4,10 +4,12 @@ App.Views.InventoryView = Backbone.View.extend({
   events:{
     'click .create': 'createNewInventory',
     'click .edit': 'renderEdit',
-    'click .update': 'updateInventory'
+    'click .update': 'updateInventory',
+    'click .delete': 'deleteInventory'
   },
   initialize:function(id){
     console.log("Inventory View Created");
+    this.listenTo(this.model, 'destroy', this.renderNothing);
     this.inventoryTemplate = HandlebarsTemplates['inventory'];
     this.newInventoryTemplate = HandlebarsTemplates['newInventory'];
     this.editInventoryTemplate = HandlebarsTemplates['edit'];
@@ -22,10 +24,10 @@ App.Views.InventoryView = Backbone.View.extend({
     var newRender = this.$el.html(this.newInventoryTemplate(this.model.toJSON()));
     $('#main-list').append(newRender);
   },
-  renderNewinList: function(){
-    var newRender = this.$el.html(this.newInventoryTemplate(this.model.toJSON()));
-    $('#main-list').append(newRender);
-  },
+  // renderNewinList: function(){
+  //   var newRender = this.$el.html(this.newInventoryTemplate(this.model.toJSON()));
+  //   $('#main-list').append(newRender);
+  // },
   // createNewInventory:function(){
   //   var productObject = {};
   //   productObject.product_name = $('input#product_name').val();
@@ -131,7 +133,14 @@ App.Views.InventoryView = Backbone.View.extend({
     });
     this.$el.html(this.inventoryTemplate(this.model.toJSON()));
 
-  }
+  },
+  deleteInventory:function(){
+    this.model.destroy({url: '/inventories/' + this.model.attributes.id});
+
+  },
+  renderNothing: function() {
+    this.$el.empty();
+  },
 
 
 
