@@ -33,6 +33,11 @@ gem "aws-sdk"
 gem 'bootstrap-sass', '~> 3.1.1'
 gem "jquery-fileupload-rails"
 gem 'rails_12factor', group: :production
+group :development do
+  gem 'rspec-rails'
+  gem 'rspec-collection_matchers'
+  gem 'shoulda-matchers', require: false
+end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
